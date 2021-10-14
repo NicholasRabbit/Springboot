@@ -23,7 +23,7 @@
         </dependency>
     </dependencies>
 
-    <!--使用此插件可把项目压缩成jar包，从而简化部署，直接运行java -a  jar包名即可-->
+    <!--使用此插件可把项目压缩成jar包，从而简化部署，直接运行java -a  jar包名即可运行web服务-->
     <build>
         <plugins>
             <plugin>

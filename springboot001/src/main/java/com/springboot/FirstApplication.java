@@ -17,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 (2),运行maven构建项目的步骤，打包项目，打成的jar包在target目录下
 (3),直接java -jar spring-boot-01-helloworld-1.0-SNAPSHOT.jar即可
 实际相当于启动了一个独立的小型的web项目模块，在浏览器输入localhost:8080/first就能访问(这属于一个微服务)
+(4),关闭服务，dos窗口下按Ctrl+C
 * */
 
 
