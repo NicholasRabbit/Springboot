@@ -4,10 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!--项目坐标，gav-->
     <groupId>com.springboot</groupId>
     <artifactId>springboot001</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!--springboot的坐标-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -20,6 +22,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
+
+    <!--使用此插件可把项目压缩成jar包，从而简化部署，直接运行java -a  jar包名即可-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
