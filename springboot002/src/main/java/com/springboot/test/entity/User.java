@@ -7,8 +7,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/*1，"user"表示使用application.yml里的user:...的赋值注入
+  2，@ConfigurationProperties支持配置文件的松散语法绑定，即配置文件的first_name/first-name 自动匹配==> firstName(java对象属性)
+ */
+
 @Component
-@ConfigurationProperties("user")     //"user"表示使用application.yml里的user:...的赋值注入
+@ConfigurationProperties("user")
 public class User {
     private String name;
     private int age;

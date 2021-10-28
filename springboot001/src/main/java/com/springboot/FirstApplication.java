@@ -21,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 * */
 
 
-
+//这是一个Springboot的配置类，配置类也是一个组件相当于@Component一样
 @SpringBootApplication     //这个注解表示这个一个springboot主程序类，表名这是一个springboot应用
 public class FirstApplication {
 
