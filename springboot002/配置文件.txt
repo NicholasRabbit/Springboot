@@ -1,0 +1,4 @@
+笔记：
+1, application.properties和application.yml是SpringBoot的默认配置文件，名称是固定的
+2, 配置文件放在man/resources/目录下面
+3, 从配置文件中也可以注入对象信息，见application.yml和User.java里的备注

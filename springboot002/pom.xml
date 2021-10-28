@@ -16,9 +16,16 @@
         <version>2.1.1.RELEASE</version>
     </parent>
     <dependencies>
+        <!--web项目依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--配置文件处理器，加上这个在配置文件(xx.yml,xx.properties)里写代码就有提示了-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
