@@ -28,11 +28,13 @@ public class SpringBootTest02 {
     @Autowired
     User04 user04;
 
+    //@ConfigurationProperties,@Value
     @Test
     public void testProperties(){
         System.out.println("user01==>" + user01 + "\n" + "user02==>" + user02);
     }
 
+    //@Validate,@Email
     @Test
     public void testValidate(){
         System.out.println("user03==>" + user03 + "\n" + "user04==>" + user04);

@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 @Validated
 public  class User04{
 
+        @Value("${user04.name}")
         private String name;
 
        //虽然这里加了@Validated和@Email验证，配置文件里user04.email04=abc不符合要求，测试类里打印abc,也不报错，说明@Value不支持验证
