@@ -1,0 +1,40 @@
+package com.springboot.test;
+
+
+import com.springboot.test.entity.User01;
+import com.springboot.test.entity.User02;
+import com.springboot.test.entity.User03;
+import com.springboot.test.entity.User04;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+//这两个注解要引入相关依赖<spring-boot-starter-test>
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class SpringBootTest02 {
+
+    @Autowired
+    User01 user01;
+
+    @Autowired
+    User02 user02;
+
+    @Autowired
+    User03 user03;
+
+    @Autowired
+    User04 user04;
+
+    @Test
+    public void testProperties(){
+        System.out.println("user01==>" + user01 + "\n" + "user02==>" + user02);
+    }
+
+    @Test
+    public void testValidate(){
+        System.out.println("user03==>" + user03 + "\n" + "user04==>" + user04);
+    }
+}

@@ -1,7 +1,7 @@
 #1,可在这里赋值为实体对象进行注入赋值
 #2,然后在用到User的地方加上@Autowired即可，见Controller层
-user:
-  name: Tom
+user01:
+  name: Hanks
   age: 16
   gender: true
   stringList:
@@ -12,3 +12,17 @@ user:
   cat:
     name: Kitty
     gender: girl
+
+
+user03:
+    email01: asklll@qq.com
+    email02: abcdefg
+    name: 老牛
+    age: 60
+    gender: true
+
+user04:
+    name: 老张
+    email: abc
+
+
