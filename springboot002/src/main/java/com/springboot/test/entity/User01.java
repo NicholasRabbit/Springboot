@@ -22,7 +22,7 @@ import java.util.Map;
   复杂类型封装               支持                             支持
 */
 
-@Component
+@Component     //<bean>对象必须加@Component注解，标售只有是容器中的组件才可接收@ConfigurationProperties注入的值
 @ConfigurationProperties("user01")
 public class User01 {
     private String name;

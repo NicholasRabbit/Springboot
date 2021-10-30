@@ -1,0 +1,5 @@
+1, @PropertySource：加载指定的配置文件；
+2, @ImportResource：导入Spring的配置文件，让配置文件里面的内容生效；
+3
+
+
