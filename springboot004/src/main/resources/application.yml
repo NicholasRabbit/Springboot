@@ -1,0 +1,23 @@
+#application.yml和application.properties不能同时用，
+#测试本配置文件效果需注释application.properties等properties文件的相关冲突选项
+server:
+  port: 8083
+spring:
+  profiles:
+    active: devlop
+
+#使用以下分隔符即表示分割这个文件了，下面就相当于另外一个文件application-devlop.yml
+---
+server:
+  port: 8084
+spring:
+  profiles: devlop
+
+#第三个文件
+---
+server:
+  port: 8085
+spring:
+  profiles: product
+
+

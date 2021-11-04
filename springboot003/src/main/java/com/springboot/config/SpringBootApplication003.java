@@ -13,9 +13,9 @@ import org.springframework.context.annotation.ImportResource;
     (3)该注解写在主应用程序类上，即本类里SpringBootApplication003.java
        (此种方式不常用)
     导入以后，后面做法和传统的Spring框架一模一样，详见SpringBootTest003.java
-  3，SpringBoot推荐使用注解的方式，替代第2条的引入配置文件的传统方式
+  3，SpringBoot推荐使用注解的方式，替代第2条的引入配置文件的传统方式，见CustomerConfig.java
     使用@Configuration标注在一个类上，这个类相当于customer-config.xml的Spring框架配置文件
-    然后把@Bean标注在一个方法上，方法返回值就是一个实体类<bean>，其id默认是方法名
+    然后把@Bean标注在一个方法上，方法返回值就是一个实体类<bean>，其id默认是方法名。
 
 * */
 
