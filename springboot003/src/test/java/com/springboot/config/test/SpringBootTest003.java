@@ -37,8 +37,7 @@ public class SpringBootTest003 {
         System.out.println("isContained ==> " + isContained +"\n"+ customer);
 
         /*2,@Configuration和@Bean方式替代上面的传统方式，SpringBoot的建议做法
-            见CustomerConfig.java里的用法
-        * */
+            见CustomerConfig.java里的用法 */
         Customer customer02 = app.getBean("customer02", Customer.class);   //bean的id是方法名
         System.out.println("customer02 ==> " + customer02);
     }

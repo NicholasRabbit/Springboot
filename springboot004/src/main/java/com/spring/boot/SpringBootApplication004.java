@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**指定加载配置文件范例
+ *
+ * 同一目录下的application.yml和application.properties，SpringBoot优先加载application.properties
+ *
  * 1,SpringBoot默认加载application.properties或application.yml
  * 2,实际开发中，开发时一套配置，正式上线后一套配置，因此使用不用的配置文件则比较省事许多
  * 3,一般用application-{profile}.properties命名的方式。例： application-dev.properties, application-prod.properties的方式命名
