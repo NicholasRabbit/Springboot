@@ -33,7 +33,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  *1, ./config/application.properties : springboot005根路径下的config目录中的配置文件，即config目录和项目打成的jar包在同一目录;
  *    注意：Maven构建项目环境下，这里不起作用，原因可能是不符合Maven的约定目录,
- *    需要项目打包好后在DOS窗口执行java -jar  springboot005-jar  --spring.config.location=classpath:/config/application.properties
+ *    需要项目打包好后在DOS窗口执行java -jar  springboot005-jar  会默认加载，不用加--spring.config.location也可，优先级第1
  *2, ./application.properties : springboot005根路径下的配置文件
  *    (这里也不管用，原因同上，需要同第1条一样执行命令加载)
  *
@@ -41,6 +41,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *4, classpath : /application.properties : 类路径根目录下的配置文件；              (而这里是resources根目录,项目编译时，会放在target/classes)
  * SpringBoot会从这四个位置全部加载配置文件
  * 如果各位置的配置文件配置不同的参数，则形成互补，如果不同使用优先级高的配置文件中的设置参数
+ *
+ * 注：以上4条中，如果这四个默认名字的配置文件中有语句指定激活:spring.profiles.active=devlop，
+ * 那么指定激活的配置文件application-devlop.properties的优先级高于这四个文件。条件是必须有激活语句才可。
+ *
  *
  * (二)，本例的Maven项目的内部中/resources/config/application.yml优先级高，确定了服务器端口为8082，覆盖了/resources/application.yml中的端口配置
  * 而/resources/application.yml中有user赋值注入，形成了互补

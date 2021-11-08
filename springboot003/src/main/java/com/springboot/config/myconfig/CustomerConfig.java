@@ -4,7 +4,7 @@ import com.springboot.config.entity.Customer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration    //注解加在这里后，这个类就相当于一个Spring框架的配置文件customer-config.xml
+@Configuration    //注解加在这里后，就是一个配置类，这个类就相当于一个Spring框架的配置文件customer-config.xml
 public class CustomerConfig {
 
     /*用方法的方式返回bean对象
