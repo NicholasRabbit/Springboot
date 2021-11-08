@@ -1,0 +1,14 @@
+在这里执行命令行测试，不是项目目录
+
+(一)，dos窗口命令行，加载配置文件命令的区别
+ * 1，--spring.config.name=classpath:/config/myApplication.properties :
+ *   适用于项目内部加载默认配置文件或自定义名字的配置文件，不适用于外部配置文件，会报错
+ * 2，--spring.config.location=D:\project\config\  :
+ *                         =D:\project\config\myApplication.properties :  目录最后是配置文件的话则不用加斜线“\”
+ *   适用于项目外部，即jar包外部的配置文件,注意如果路径最后是目录需加斜线“\”，也适用于内部的配置文件
+ * 3，在01_test_config执行java -jar springboot005-1.0-SNAPSHOT.jar,
+ *    如果此命令后面不加--spring.config.....则按下面(二)的默认优先级顺序来配置相关项
+ *    如果加则按找命令行最后一项的目录的配置文件为最优先的，不按下面的1，2，3，4来了，因为自定义了
+ *    例：java -jar springboot005-1.0-SNAPSHOT.jar  --spring.config.location=~/01_test_config/config/application.properties, ~/01_test_config/application.properties
+ *       同时自定义了两个配置文件，则按照最后写的那个来，虽然默认最后那个没有前面的优先级高，但是这里自定义写在最后了，所以最后这个优先级高
+ *       ("~"代表绝对路径，这里省略)
