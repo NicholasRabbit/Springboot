@@ -1,8 +1,6 @@
 package com.spring.boot.config;
 
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -23,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *       加载config目录下的默认名字的配置文件application.properties或application.yml
  *    (3)上面(1)(2)是加载项目内部，外部的配置文件需要加绝对路径,例：
  *       --spring.config.location=D:\config\application.properties
- *
+ *=======
  * 2，JNDI的属性设置，java:comp/env 的属性;（后期待研究）
  * 3，Java系统属性(System.getProperties());
  * 4，操作系统变量，
@@ -31,18 +29,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *       选项里配置：VM options ：表示在java虚拟机中进行配置
  *                  Programme arguments ：和第1条中命令行配置原理一样，只是形式不同
  * 5，RandomPropertySource配置的random.*属性 ，此方式常用于加密方面
- * 其它的从jar包外向jar包内加载，优先加载带profile的，
- * 6，jar包外部:application-{profile}.properties 例如application-devlop.properties 或application.yml(带spring.profile的)配置文件
- *
- *
- *
+ * =======
+ * 其它的从jar包外优先于jar包内，指定application-{profile}.properties/yml的优先，
+ * 6，如果这默认名字的配置文件中有语句指定激活:spring.profiles.active=devlop，
+ *    那么指定激活的配置文件application-devlop.properties的优先级高于激活它的同位置的默认名字的配置文件。条件是必须有激活语句才可。
+ *    参照SpringBootApplication005中的笔记
  *
  * */
 
 @SpringBootApplication
 public class SpringBootApplication006 {
-
-
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootApplication006.class, args);
