@@ -1,0 +1,1 @@
+SpringBoot的默认日志框架是SLF4J(接口层)和logback(实现层)
