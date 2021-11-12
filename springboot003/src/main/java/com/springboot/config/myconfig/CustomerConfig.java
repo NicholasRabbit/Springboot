@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration    //注解加在这里后，就是一个配置类，这个类就相当于一个Spring框架的配置文件customer-config.xml
 public class CustomerConfig {
 
-    /*用方法的方式返回bean对象
-      加@Bean注解，返回值就是实体对象,bean的id默认是方法名
+    /*用方法的方式返回bean对象,加@Bean注解，返回值就是实体对象,bean的id默认是方法名
+      此方式相当于在spring.xml里写一个<bean>标签
     * */
     @Bean
     public Customer customer02(){

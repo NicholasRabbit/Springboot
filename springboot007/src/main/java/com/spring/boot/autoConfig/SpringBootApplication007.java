@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *       自定义编码格式，底层与SpringMVC的CharacterEncodingFilter设置一样
  * 3，参照注解@SpringBootApplicatin-->@EnableAutoConfiguration-->@AutoConfigurationImportSelector
  *    其它参照笔记及源码
+ * 4，
  * */
 
 @SpringBootApplication
