@@ -1,1 +1,9 @@
-SpringBoot的默认日志框架是SLF4J(接口层)和logback(实现层)
+
+1,SpringBoot的默认日志框架是SLF4J(接口层)和logback(实现层)
+
+2,log.file和log.path设置的区别
+| logging.file | logging.path | Example  | Description                       |
+| ------------ | ------------ | -------- | ----------------------------------|
+| (none)       | (none)       |          | 只在控制台输出                     |
+| 指定文件名    | (none)       | my.log   | 输出日志到my.log文件               |
+| (none)       | 指定目录      | /var/log | 输出到指定目录的 spring.log 文件中  |

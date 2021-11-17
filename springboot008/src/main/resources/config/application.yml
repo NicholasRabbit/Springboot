@@ -1,0 +1,10 @@
+
+#本配置文件在/resources/config目录下，优先级高于/resources/application.properties
+
+#在此练习yaml文件配置日志的写法
+
+#设置日志级别
+logging:
+  level:
+    com.spring.boot.log: debug
+
