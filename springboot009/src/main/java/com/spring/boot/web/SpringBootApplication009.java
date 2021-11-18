@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * SpringBoot静态资源位置
  *
+ * SpringBoot的相关自动配置都在配置类WebMvcAutoConfiguration.java类里面
+ *
  * 1，以webjars的形式，引入jquery的静态资源，不用像Spring的web项目一样在WEB-INF包下导入jquery库了，详见pom.xml
  *   可直接输入http://localhost:8081/webjars/jquery/3.3.0/jquery.js 进行访问
  *
