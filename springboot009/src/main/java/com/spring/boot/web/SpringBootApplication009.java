@@ -19,13 +19,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  *    (1)浏览器发来的任何请求“/**”都去上面的路径去找静态的资源，注意如果自定义静态资源位置，这里的默认的就不管用了，详见配置文件
  *    (2)访问这些静态资源文件不需要在路径里加上级目录名,但是在这个默认目录下再加目录则访问url里需要加这些目录。
- *       例，访问mypage/there.html 是：localhost:8081/web_project009/there.html
- *           访问mypage/view/done.html  是 ：localhost:8081/web_project009/view/done.html
+ *       例  访问/mypage/there.html 是：localhost:8081/web_project009/there.html
+ *           访问/mypage/view/done.html  是 ：localhost:8081/web_project009/view/done.html
+ *           访问/static/pages/form.html 是 ：localhost:8081/web_project009/pages/form.html
  *
  * 3，也可自定义静态资源位置，在application.properties配置文件中设置
  *    spring.resources.static-locations=classpath:/html/,classpath:/mypage/
  *
- * 4，SpringBoot的web项目可自定义浏览器标签的图标，名称必须是favicon.ico
+ * 4，SpringBoot的web项目默认首页也是index.html,  它被/**路径映射，即放到静态资源任意路径下都可一作为欢迎页面访问
+ *
+ * 5，SpringBoot的web项目可自定义浏览器标签的图标，名称必须是favicon.ico
  *    放到静态资源目录下任意位置即可，默认是使用自定义图标的.  本例不能用，原因待分析！！
  *    spring.mvc.favicon.enabled=true (application.properties配置文件里设置，默认为true,不写这句也是true)
  *
