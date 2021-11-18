@@ -4,11 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.spring.boot.log</groupId>
-    <artifactId>springboot008</artifactId>
+    <groupId>com.spring.boot.web</groupId>
+    <artifactId>springboot009</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--定义SpringBoot的坐标，及其依赖父类坐标-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -38,29 +37,33 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
         <!--springboot测试模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
-        <!--1，引入SpringBoot日志适配模块，可将别的框架的日志框架与SpringBoot本身默认的框架进行接口转换并对接
-               注意被引入的框架要排除自己的日志组件-->
+        <!--引入SpringBoot日志适配模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
-        <!--2，这里引入Spring框架，Spring默认使用commons logging日志组件，需要排除。引入MyBatis同理-->
+
+        <!--tomcat依赖-->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--添加jQuery依赖-->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.3.0</version>
         </dependency>
 
     </dependencies>
@@ -73,8 +76,6 @@
             </plugin>
         </plugins>
     </build>
-
-
 
 
 </project>

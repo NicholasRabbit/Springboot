@@ -1,0 +1,2 @@
+classpath: /resources/  (注意，这个resources文件夹时Maven原有的resources目录下的又一个,
+                         Maven的其实是classpath)
