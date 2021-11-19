@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">  <!--要想Thymeleaf对页面进行渲染需在此声明此语句-->
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+</head>
+<body>
+
+<!--th:text 把div内的内容进行设置，Thymeleaf的${}用法，从后台传来的map里取值，跟JSP的EL表达式类似 -->
+<div  th:text="${username}"></div>  <br>
+<div th:utext="${username}"></div>
+
+</body>
+</html>
