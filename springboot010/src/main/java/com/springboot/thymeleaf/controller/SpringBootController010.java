@@ -19,6 +19,6 @@ public class SpringBootController010 {
     @RequestMapping(value="/list")
     public String showList(Map<String, Object> map){
         map.put("username", "Tom");
-        return "list";     //SpringBoot也和Spring一样，可转发到一个页面，默认是classpath:/**,即多层路径下找到list.html页面转发，并把数据过去
+        return "list";     //SpringBoot也和Spring一样，可转发到一个页面，默认是classpath:/**,即类路径的任意路径下找到list.html页面转发，并把数据过去
     }
 }
