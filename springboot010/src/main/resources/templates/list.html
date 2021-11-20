@@ -6,12 +6,35 @@
 </head>
 <body>
 
-<!--th:text 把div内的内容进行设置，Thymeleaf的${}用法，从后台传来的map里取值，跟JSP的EL表达式类似
-    th:text : 转义特殊字符
-    th:utext : 不转义特殊字符，后期待研究
+
+<!--Thymeleaf语法范例
+    1, th:text 把div内的内容进行设置，Thymeleaf的${}用法，从后台传来的map里取值，跟JSP的EL表达式类似
+       th:text : 转义特殊字符
+       th:utext : 不转义特殊字符，后期待研究
+       使用(th:属性名)也可给属性赋值
  -->
-<div  th:text="${username}"></div>  <br>
+<div th:id="${username}"  th:class="${username}" th:text="${username}"></div>
 <div th:utext="${username}"></div>
+
+<hr/>
+<!--2,遍历集合写法，前面的${user}对应后面的user
+      每次都会遍历这个<div>标签-->
+<div th:text="${u01}" th:each="u01:${userList}"></div>
+<hr/>
+
+<!--3,&{}和*{}的用法区别，两者用法相同，都可在大括号里写对象名
+      但是*{}里可写对象的属性名，其中“*”就表示它上面的user01对象-->
+<div th:object = "${user01}">
+    <p>ID: <span th:text="*{id}"></span></p>
+    <p>NAME: <span th:text="*{name}"></span></p>
+</div>
+<hr/>
+<!--上面的也可这样写，也可混合使用,参照Thymeleaf的帮助文档-->
+<div th:object = "${user01}">
+    <p>ID: <span th:text="${user01.id}"></span></p>
+    <p>NAME: <span th:text="${user01.name}"></span></p>
+    <p>NAME: <span th:text="*{name}"></span></p>
+</div>
 
 </body>
 </html>

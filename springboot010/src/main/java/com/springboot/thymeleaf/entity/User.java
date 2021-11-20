@@ -1,16 +1,22 @@
-package com.springboot.config.entity;
+package com.springboot.thymeleaf.entity;
 
-//这里不用加 @Component注解，为了测试customer-config.xml的Spring的配置文件，和@ImportResouce的用法
-public class Customer {
+import org.springframework.stereotype.Component;
 
-    private int id;
+import java.io.Serializable;
+
+@Component
+public class User implements Serializable {
+
+    private static final long serialNum = 123L;
+
+    private Integer id;
     private String name;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -24,7 +30,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
