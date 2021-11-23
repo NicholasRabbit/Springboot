@@ -7,7 +7,7 @@
 <body>
 
 
-<!--Thymeleaf语法范例
+<!--Thymeleaf语法范例, 其它的多看官方的帮助文档
     1, th:text 把div内的内容进行设置，Thymeleaf的${}用法，从后台传来的map里取值，跟JSP的EL表达式类似
        th:text : 转义特殊字符
        th:utext : 不转义特殊字符，后期待研究
@@ -32,9 +32,9 @@
 <!--上面的也可这样写，也可混合使用,参照Thymeleaf的帮助文档-->
 <div th:object = "${user01}">
     <p>ID: <span th:text="${user01.id}"></span></p>
-    <p>NAME: <span th:text="${user01.name}"></span></p>
-    <p>NAME: <span th:text="*{name}"></span></p>
+    <p>NAME: <span th:text="*{name}"></span></p>   <!--可混合使用-->
 </div>
+
 
 </body>
 </html>

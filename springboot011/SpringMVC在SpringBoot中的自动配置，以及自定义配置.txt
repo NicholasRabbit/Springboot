@@ -1,0 +1,24 @@
+### 1. Spring MVC auto-configuration
+
+Spring Boot 自动配置好了SpringMVC
+
+以下是SpringBoot对SpringMVC的默认配置:**==（WebMvcAutoConfiguration）==**
+
+- Inclusion of `ContentNegotiatingViewResolver` and `BeanNameViewResolver` beans.
+
+  - 自动配置了ViewResolver（视图解析器：根据方法的返回值得到视图对象（View），视图对象决定如何渲染（转发？重定向？））
+  - ContentNegotiatingViewResolver：组合所有的视图解析器的；
+  - ==如何定制：我们可以自己给容器中添加一个视图解析器；自动的将其组合进来；==
+
+- Support for serving static resources, including support for WebJars (see below).静态资源文件夹路径,webjars
+
+- Static `index.html` support. 静态首页访问
+
+- Custom `Favicon` support (see below).  favicon.ico
+
+
+
+- 自动注册了 of `Converter`, `GenericConverter`, `Formatter` beans.
+
+  - Converter：转换器；  public String hello(User user)：类型转换使用Converter
+  - `Formatter`  格式化器；  2017.12.17===Date；
