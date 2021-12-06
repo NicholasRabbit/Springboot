@@ -1,4 +1,4 @@
 server:
   port: 8082
   servlet:
-    context-path: /web_project11
+    context-path: /web
