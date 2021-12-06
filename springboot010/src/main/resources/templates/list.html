@@ -8,12 +8,12 @@
 
 
 <!--Thymeleaf语法范例, 其它的多看官方的帮助文档
-    1, th:text 把div内的内容进行设置，Thymeleaf的${}用法，从后台传来的map里取值，跟JSP的EL表达式类似
+    1, th:text 把div内的文本内容进行设置，会把div标签中间的值替换，Thymeleaf的${}用法，从后台传来的map里取值，跟JSP的EL表达式类似
        th:text : 转义特殊字符
        th:utext : 不转义特殊字符，后期待研究
        使用(th:属性名)也可给属性赋值
  -->
-<div th:id="${username}"  th:class="${username}" th:text="${username}"></div>
+<div th:id="${username}"  th:class="${username}" th:text="${username}">这里内容会被text的值替换</div>
 <div th:utext="${username}"></div>
 
 <hr/>

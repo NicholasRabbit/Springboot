@@ -10,4 +10,5 @@ public class SpringBootApplication010 {
         SpringApplication.run(SpringBootApplication010.class, args);
         System.out.println("010 deployed successfully!");
     }
+    
 }
