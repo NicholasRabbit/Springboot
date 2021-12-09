@@ -1,0 +1,2 @@
+全面接管SpringMVC是指完全不用SpringBoot自动配置MVC，个人完全手动配置，
+跟之前的传统Spring框架配置MVC一样，主要用@EnableWebMvc，加上配置类@Configuration，@Bean注解的方式。
