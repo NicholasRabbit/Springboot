@@ -11,7 +11,6 @@ public class SpringBootController011 {
 
     @RequestMapping(value="/list")
     public String showList(Model model){
-
         return "list";
     }
 }

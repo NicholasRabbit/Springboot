@@ -14,7 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  *二，自定义视图映射
  * 1, 有时候SpringBoot自动配置不能满足需求，因此可在使用SpringBoot自动配置SpringMVC相关功能的基础上，自定义一些功能；
- * 2, 例如自定义视图映射，把请求路径映射到一个静态页面
+ * 2, 例如自定义视图映射，把请求路径映射到一个静态页面, 见个人自定义的CustomizedMvcConfig.java, 这个类在SpringBoot启动时会和其它自动配置类
+ *    一起被扫描进IOC容器里，可在WebMvcConfigurerComposite.java的addViewControllers(..)方法出打断点观察的到。
  * */
 
 @SpringBootApplication
