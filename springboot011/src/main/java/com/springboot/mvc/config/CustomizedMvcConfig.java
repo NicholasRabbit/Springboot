@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class CustomizedMvcConfig  extends WebMvcConfigurerAdapter {
 
     /**
-     *1，重写抽象类中的assViewControllers(..)方法，即可向springmvc.xml配置文件中一样，进行配置路径映射；
+     *1，重写抽象类中的addViewControllers(..)方法，即可向springmvc.xml配置文件中一样，进行配置路径映射；
      *2，访问：http://localhost:8082/web/done路径即可显示done.html页面，无需在controller层进行转发了；
      *3，这个配置类起作用的原因，参照个人笔记“七，SpringMvc自动配置”的第3条源码分析
      */
@@ -19,6 +19,6 @@ public class CustomizedMvcConfig  extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         ViewControllerRegistration viewControllerRegistration = registry.addViewController("/done");
-        viewControllerRegistration.setViewName("done_page");   //这里是经过视图解析器添加了后缀的，静态页面是done.html
+        viewControllerRegistration.setViewName("done_page");   //这里是经过视图解析器添加了后缀的，静态页面是done_page.html
     }
 }
