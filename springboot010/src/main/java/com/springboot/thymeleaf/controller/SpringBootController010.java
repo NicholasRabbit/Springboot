@@ -33,5 +33,5 @@ public class SpringBootController010 {
         map.put("user01",user01);
 
         return "list";     //SpringBoot也和Spring一样，可转发到一个页面，默认是classpath:/**,即类路径的任意默认的目录下找到list.html页面转发，并把数据过去
-    }
+    }                      //底层模板引擎/list请求路径解析，使得return "list"转发到了/templates/list.html
 }
