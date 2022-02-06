@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.*;
 @Configuration
 public class MyCustomizedConfig extends WebMvcConfigurerAdapter {
 
-
+    //配置一个视图映射
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //设置访问项目根路径/mvc/login就直接到login.html, 注意login.html必须在/resources/templates文件夹里, 由Thymeleaf模板引擎渲染
@@ -22,16 +22,19 @@ public class MyCustomizedConfig extends WebMvcConfigurerAdapter {
         view.setViewName("login");  //这里省略了后缀".html"
     }
 
-    /**
-     * 1,因为使用了EnableWebMvc，所以这里手动设置欢迎页面，即访问项目根路径localhost/mvc/直接到此页面
-     * 2,需要加@Bean注解，才可被扫描进SpringBoot的IOC容器里，被其使用
+    /**再配置一个欢迎页面视图映射
+     * 1,配置一个WebMvcConfigurerAdapter,根据之前看的底层源码可知，SpringBoot启动指回加载所有的 WebMvcConfigurerAdapter对象
+     * 2,因为使用了EnableWebMvc，所以这里手动设置欢迎页面，即访问项目根路径localhost/mvc/直接到此页面
+     * 3,需要加@Bean注解，才可被扫描进SpringBoot的IOC容器里，被其使用
      */
     @Bean
     public WebMvcConfigurerAdapter  indexPage(){
         WebMvcConfigurerAdapter  adapter = new WebMvcConfigurerAdapter() {      //因为WebMvcConfigurerAdapter是一个抽象类，所以这里用匿名内部类的方式new一个对象
             public void addViewControllers(ViewControllerRegistry registry) {
-                ViewControllerRegistration indexView = registry.addViewController("/");
-                indexView.setViewName("index");   //这里指index.html页面，它需在/resources/templates里才可被Thymeleaf模板引擎解析
+                ViewControllerRegistration contextPath = registry.addViewController("/");
+                contextPath.setViewName("index");   //这里指index.html页面，它需在/resources/templates里才可被Thymeleaf模板引擎解析
+                ViewControllerRegistration  indexPage = registry.addViewController("/index.html");
+                indexPage.setViewName("index");  //url访问/index.html也会映射到/resources/templates/index.html
             }
         };
 
