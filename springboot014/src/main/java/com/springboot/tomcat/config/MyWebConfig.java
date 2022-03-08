@@ -15,6 +15,9 @@ public class MyWebConfig extends WebMvcConfigurerAdapter {
         1,注意这两个参数的路径写法，"/image/**"后面有两个星号，表示多重url路径匹配
         2,第二个“file”参数不能忘记，后面的路径分割符“/”注意加上
         3,这两个参数也可再application.yml文件里设置，参照coal项目WebMvcConfig.java
+        4,访问路径是:  项目根路径 + /image/ + 图片相对路径
+          项目根路径：http://localhost:8080/urlmpper/bing.jpg
+          例：http://localhost:8080/urlmpper/bing.jpg, 如果还有文件夹“E:\localfile\recycle\photos\football” ，则加上文件加名localhost:8080/urlmpper/football/bing.jpg
         * */
     }
 }
