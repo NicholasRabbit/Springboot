@@ -12,6 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 //这两个注解要引入相关依赖<spring-boot-starter-test>
+/*
+* 测试模块的启动类的包路径要和主应用的包相同路径
+* 即com.springboot.test.SpringBootTest02 = com.springboot.test.SpringBootApplication02
+* */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootTest02 {
