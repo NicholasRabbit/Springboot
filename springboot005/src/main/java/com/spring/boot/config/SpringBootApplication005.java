@@ -21,7 +21,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *    例：java -jar springboot005-1.0-SNAPSHOT.jar  --spring.config.location=~/01_test_config/config/application.properties, ~/01_test_config/application.properties
  *       同时自定义了两个配置文件，则按照最后写的那个来，虽然默认最后那个没有前面的优先级高，但是这里自定义写在最后了，所以最后这个优先级高
  *       ("~"代表绝对路径，这里省略)
- * 4，在idea中设置加载项目外部配置文件：Run-->Edit Configuration-->Configuration:Environment，参照springboot006
+ * 4，如果使用的外部配置文件中使用了profile.active指定了application-dev.yml文件，则被指定的application-dev.yml文件文件也要放在外部，在项目内部指定不到，会报错。
+ * 5，在idea中设置加载项目外部配置文件：Run-->Edit Configuration-->Configuration:Environment，参照springboot006
  *
  *
  * (二)，一个项目不同位置的配置文件的优先级范例:

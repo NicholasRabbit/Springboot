@@ -399,7 +399,7 @@ public class CustomizedMvcConfig  extends WebMvcConfigurerAdapter {
 
 ##### 4，SpringBoot关于SpringMVC的的其它自动配置，这些配置也都可以个人自定义
 
-- HttpMessageConveter :  是SpringMVC用来转换Htp请求和相应的；
+- HttpMessageConveter :  是SpringMVC用来转换Http请求和相应的；
 - MessageCodeResolver :  定义错误代码生成规则，例如： JSR303校验错误后生成的错误信息格式
 - ConfigurableWebBindingIntializer :  与把请求数据转化为JavaBean有关
 
