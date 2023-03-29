@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/*
+/**
  不使用@ConfigurationProperties赋值，使用@Value给属性单个赋值
  @Value的用法
  1，@Value相当于最开始spring.xml里<bean>中的value的作用一样
@@ -16,6 +16,7 @@ import java.util.Map;
  3，${user02.name} : 表示引用配置文件中的值
     #{26} ： 表示直接赋值
     用法与MyBatis相反，注意区分
+ 4，@Value给静态属性赋值，把该注解用在方法上，见下方代码
  */
 //user02在application.properties里配置注入
 //@ConfigurationProperties("user")
@@ -38,6 +39,17 @@ public class User02 {
     private Map<String,Object> map;
     //@Value("${user02.cat}")
     private Cat cat;
+
+    //静态属性赋值范例
+    //注解写这里不管用
+    //@Value
+    static String userName;
+    //注解写在方法上，注意这个方法不要用static修饰，否则不起作用
+    @Value("${user02.name}")
+    public void setUserName(String userName) {
+        User02.userName = userName;
+    }
+
 
     public String getName() {
         return name;
