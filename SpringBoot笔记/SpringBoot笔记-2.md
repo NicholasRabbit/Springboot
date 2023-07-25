@@ -94,10 +94,14 @@ public class DeleteScheduleService {
 
 ### 七，@Cacheable,@CacheEvict的使用
 
-@Cacheable(value/cacheNames = "缓存名，可以是String数组", key = "键名", unless = "#result==null")
-unless = "#result==null"表示返回值是null时不加入缓存。缓存中找不到的话会执行方法的具体查询语句，所以@CacheEvict不用放在新增方法上。
+- @Cacheable(value/cacheNames = "缓存名，可以是String数组", key = "键名", unless = "#result==null")
+  unless = "#result==null"表示返回值是null时不加入缓存。缓存中找不到的话会执行方法的具体查询语句，所以@CacheEvict不用放在新增方法上。
 
-@CacheEvict使整个value或cacdeNames所指的缓存失效设置方法
+- @CacheEvict使整个value或cacheNames所指的缓存失效设置方法
+
+  ​    @CacheEvict注意失效方法被同一个类内的方法调用时无法起作用，需用别的类里的方法调用。
+
+-  @Cacheable是基于Spring [AOP](https://so.csdn.net/so/search?q=AOP&spm=1001.2101.3001.7020)代理类，内部方法调用是不走代理的，@Cacheable是不起作用的 
 
 ```java
  @CacheEvict(value = CacheConstants.COAL_FILED,key = "#jcCoalFiled.id")
@@ -159,7 +163,7 @@ unless = "#result==null"表示返回值是null时不加入缓存。缓存中找�
     @Operation(summary = "通过id删除煤场表" , description = "通过id删除煤场表" )
     @SysLog("通过id删除煤场表" )
     @DeleteMapping("/{id}" )
-    @CacheEvict(value = CacheConstants.COAL_FILED,key = "#jcCoalFiled.id")
+    @CacheEvict(value = CacheConstants.COAL_FILED,key = "#id")
     @PreAuthorize("@pms.hasPermission('wrzs_jccoalfiled_del')" )
     public R removeById(@PathVariable Long id) {
         return R.ok(jcCoalFiledService.removeById(id));
@@ -170,6 +174,10 @@ unless = "#result==null"表示返回值是null时不加入缓存。缓存中找�
 ### 八，@Transactional失效原因
 
 方法被本类内部调用，加了@Transactional注解也不起作用
+
+**原因：**
+
+ spring 在扫描bean的时候会扫描方法上是否包含@[Transactional](https://so.csdn.net/so/search?q=Transactional&spm=1001.2101.3001.7020)注解，如果包含，spring会为这个bean动态地生成一个子类（即代理类，proxy），代理类是继承原来那个bean的。此时，当这个有注解的方法被调用的时候，实际上是由代理类来调用的，代理类在调用之前就会启动transaction。然而，如果这个有注解的方法是被同一个类中的其他方法调用的，那么该方法的调用并没有通过代理类，而是直接通过原来的那个bean，所以就不会启动transaction，我们看到的现象就是@Transactional注解无效。 
 
 ```java
 public class ProductPlanOutputMainServiceImpl ...{
@@ -215,6 +223,22 @@ Controller直接调用
 		}
 		return productPlanOutputMainService.saveOrUpdatePlanBatch(productPlanOutputMain);
 	}
+```
+
+### 九，@PostMapping等不写uri如何调用
+
+@PostMapping，@PutMapping, @DeleteMapping等不写uri，默认来对应的请求类型访问对应注解所在方法。
+
+```java
+@RequestMapping("/category" )
+public class ProductCategoryController {
+    
+    @PutMapping  //这里没写uri则来put请求默认访问此方法
+    public R updateById(@RequestBody ProductCategory productCategory) {
+        return R.ok(productCategoryService.updateById(productCategory));
+    }
+}
+
 ```
 
 
