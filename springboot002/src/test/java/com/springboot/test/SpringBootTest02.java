@@ -27,6 +27,7 @@ public class SpringBootTest02 {
     User02 user02;
 
     @Autowired
+
     User03 user03;
 
     @Autowired
@@ -35,6 +36,7 @@ public class SpringBootTest02 {
     //@ConfigurationProperties,@Value
     @Test
     public void testProperties(){
+        
         System.out.println("user01==>" + user01 + "\n" + "user02==>" + user02);
     }
 
